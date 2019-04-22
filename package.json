@@ -1,6 +1,6 @@
 {
   "name": "command-line-arg-map",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Library that maps command line arguments to a easily readable map.",
   "main": "index.js",
   "scripts": {},
