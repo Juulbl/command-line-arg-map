@@ -8,35 +8,40 @@ module.exports = function(value) {
         if(arguments.length > 1) {
             for(let i = 0; i < arguments.length; i++) {
                 let argContent = this.getArg(arguments[i]);
-                if(argContent != null) {
+                if(argContent !== undefined) {
                     return argContent;
                 }
             }
         } else {
-            let val = this.command.args[arg];
-            if(val != null) {
-                return val;
-            }
+            return this.command.args[arg];
         }
-        return null;
+        return undefined;
     }
 
     /**
      * @brief Get arguments from command.
-     * @param arguments Uses all given arguments.
+     * @param arguments Uses all given arguments. If no arguments are given, it will return all command arguments.
      * @returns Arguments map with their values.
      */
     this.getArgs = function() {
+        //If no arguments given, return all arguments.
+        if(arguments.length == 0) {
+            return this.command.args;
+        }
+
         let args = {};
         for(let i = 0; i < arguments.length; i++) {
             let argContent = this.command.args[arguments[i]];
-            if(argContent != null) {
-                args[arguments[i]] = argContent;
-            } else {
-                args[arguments[i]] = null;
-            }
+            args[arguments[i]] = argContent;
         }
         return args;
+    }
+
+    /**
+     * @brief returns all given commands.
+     */
+    this.getCommands = function() {
+        return this.command.commands;
     }
 
     /**
