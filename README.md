@@ -3,7 +3,7 @@ Library that maps command line arguments to a easily readable map.
 An array or string can be used as parameters for the constructor and toCommand function.
 
 The command-line argument map contains a command and an args property:
-```json
+```javascript
 {
     "command": [],
     "args": {}
@@ -13,7 +13,7 @@ The command-line argument map contains a command and an args property:
 - **args**: All flags with their given values, this can eigher be null, a single value or an array. When an argument's value is undefined it means that it has not been set and if it is null, it is set without a value. In every other case it returns the given value.
 
 **Map example**
-```json
+```javascript
 {
     "command": [ //All items before the arguments.
         "program",
@@ -89,7 +89,7 @@ node index.js -s -f -i ./test/dir/file.ext ./test/dir/file1.ext ./test/dir/file2
 ```
 
 **Output**
-```json
+```javascript
 {
     "commands": [
         "node",
@@ -126,7 +126,7 @@ let command = new CommandMap(value);
 console.log(command.getCommands());
 ```
 Output:
-```json
+```javascript
 ["node", "index.js"]
 ```
 
@@ -171,7 +171,7 @@ let command = new CommandMap(value);
 console.log(command.getArgs());
 ```
 Output:
-```json
+```javascript
 {
     "-s": null,
     "-f": null,
@@ -201,7 +201,7 @@ let command = new CommandMap(value);
 console.log(command.getArgs("-s", "-p", "-i", "--lang"));
 ```
 Output:
-```json
+```javascript
 {
     "-s": null,
     "-p": undefined,
